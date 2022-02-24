@@ -28,7 +28,7 @@ public class Buttons extends ButtonsManipulation{
                 gameControl.startGame();
                 gridSudoku.generateNewGrid();
                 History.resetHistory();
-                stopWatch.resetTime();
+
             }
         });
     }

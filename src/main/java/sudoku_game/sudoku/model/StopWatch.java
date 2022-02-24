@@ -12,22 +12,30 @@ public class StopWatch {
     private Timer timer;
     private TimerTask timerTask;
     private Text txtTime;
+    public static boolean IS_RUNNING = false;
 
 
     public StopWatch(Text txtTime){
         this.elapsedTimeInSeconds = 0;
+        IS_RUNNING = false;
         this.timer = new Timer();
         this.txtTime = txtTime;
+    }
+
+    public void cancelTime(){
+        if(!IS_RUNNING) return;
+
+        timerTask.cancel();
+        IS_RUNNING = false;
     }
 
     public void resetTime(){
         elapsedTimeInSeconds = 0;
     }
-    public void cancelTime(){
-        timerTask.cancel();
-    }
 
     public void start(){
+        if(IS_RUNNING) return;
+
         timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -35,7 +43,12 @@ public class StopWatch {
                 txtTime.setText(formatTime());
             }
         };
+        IS_RUNNING = true;
         linkTimerTaskToTimer();
+    }
+
+    public void setTextTxtTime(String text) {
+        this.txtTime.setText(text);
     }
 
     private String formatTime(){
