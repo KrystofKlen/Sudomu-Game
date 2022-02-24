@@ -37,6 +37,10 @@ public class Buttons extends ButtonsManipulation{
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                if(!stopWatch.IS_RUNNING){
+                    //game has not started
+                    return;
+                }
                 SudokuSolver.solveSudoku(gridSudoku.getArrValuesInGrid());
                 gridSudoku.setButtonsTextFromArrOfValues(gridSudoku.getArrValuesInGrid(), gridSudoku.getArrButtonsInGrid());
                 gameControl.discardGame();
