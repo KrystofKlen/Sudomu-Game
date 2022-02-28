@@ -1,4 +1,4 @@
-package sudoku_game.sudoku.view_model;
+package sudoku_game.sudoku.view;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -8,14 +8,16 @@ import sudoku_game.sudoku.model.History;
 import sudoku_game.sudoku.model.HistoryValue;
 import sudoku_game.sudoku.model.StopWatch;
 import sudoku_game.sudoku.model.SudokuSolver;
+import sudoku_game.sudoku.view_model.ButtonsManipulation;
+import sudoku_game.sudoku.view_model.Grids;
 
 
 import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_NORMAL;
 import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_SOLUTION_CORRECT;
 
-public class Buttons extends ButtonsManipulation{
+public class Buttons extends ButtonsManipulation {
     Grids gridSudoku;
-    Buttons(Grids gridSudoku){
+    public Buttons(Grids gridSudoku){
         this.gridSudoku = gridSudoku;
     }
     GameControl gameControl;
@@ -65,7 +67,7 @@ public class Buttons extends ButtonsManipulation{
         });
     }
 
-    void prepareBackButton(Button button, Grids grids){
+    public void prepareBackButton(Button button, Grids grids){
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {

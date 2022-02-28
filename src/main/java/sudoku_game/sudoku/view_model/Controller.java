@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import sudoku_game.sudoku.model.History;
 import sudoku_game.sudoku.model.StopWatch;
+import sudoku_game.sudoku.view.Buttons;
 
 import java.net.URL;
 import java.util.ResourceBundle;

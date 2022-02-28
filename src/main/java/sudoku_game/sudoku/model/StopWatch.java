@@ -56,7 +56,6 @@ public class StopWatch {
         int minutes = (elapsedTimeInSeconds - hours*3600) / 60;
         int seconds = elapsedTimeInSeconds - hours*3600 - minutes*60;
         String strTime = String.format("%02d:%02d:%02d",hours,minutes,seconds);
-        System.out.println(strTime);
         return strTime;
     }
 
