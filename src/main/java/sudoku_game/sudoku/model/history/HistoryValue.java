@@ -1,4 +1,4 @@
-package sudoku_game.sudoku.model;
+package sudoku_game.sudoku.model.history;
 
 public class HistoryValue {
     private int rowIndex;

@@ -56,7 +56,7 @@ public class SudokuSolver {
         }
         return true;
     }
-
+    //Key function used to solve sudoku grid
     public static boolean solveSudoku(int grid[][]) {
         for (int rowIndex = 0; rowIndex < GRID_SIZE; rowIndex++) {
             for (int columnIndex = 0; columnIndex < GRID_SIZE; columnIndex++) {
@@ -76,6 +76,8 @@ public class SudokuSolver {
         return true;
     }
 
+    /* Helper functions for Sudoku Solver
+     *********************************************************************************************************/
     private static boolean numIsValid(int num, int grid[][], int rowIndex, int columnIndex) {
         return !containsInRow(num, grid, rowIndex, columnIndex)
                 && !containsInColumn(num, grid, rowIndex, columnIndex)

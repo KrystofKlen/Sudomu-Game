@@ -4,8 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import sudoku_game.sudoku.game.GameControl;
-import sudoku_game.sudoku.model.History;
-import sudoku_game.sudoku.model.HistoryValue;
+import sudoku_game.sudoku.model.history.History;
+import sudoku_game.sudoku.model.history.HistoryValue;
 import sudoku_game.sudoku.model.StopWatch;
 import sudoku_game.sudoku.model.SudokuSolver;
 import sudoku_game.sudoku.view_model.ButtonsManipulation;
@@ -13,7 +13,6 @@ import sudoku_game.sudoku.view_model.Grids;
 
 
 import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_NORMAL;
-import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_SOLUTION_CORRECT;
 
 public class Buttons extends ButtonsManipulation {
     Grids gridSudoku;

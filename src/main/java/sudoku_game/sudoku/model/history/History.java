@@ -1,6 +1,7 @@
-package sudoku_game.sudoku.model;
+package sudoku_game.sudoku.model.history;
 
 import javafx.scene.control.Button;
+
 import java.util.Stack;
 
 import static sudoku_game.sudoku.view.CONSTANSTS.MAXIMUX_HISTORY_LENGTH;
@@ -31,6 +32,10 @@ public class History {
         numOfMoves = 0;
     }
 
+    /**
+     * adds a player's move to history
+     * @param selectedButton
+     */
     public static void addToHistory(Button selectedButton){
         int rowIndex = Character.getNumericValue(selectedButton.getId().charAt(0));
         int columnIndex = Character.getNumericValue(selectedButton.getId().charAt(1));
@@ -42,6 +47,10 @@ public class History {
         numOfMoves++;
     }
 
+    /**
+     * There is a finite limit of moves that app can remember, if this limit is exceeded, than the oldest
+     * move is deleted from history
+     */
     public static void deleteFromHistoryIfLimitExceeded(){
         if(stackHistory.size() > MAXIMUX_HISTORY_LENGTH){
             deleteFromHistory();

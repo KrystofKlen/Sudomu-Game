@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import sudoku_game.sudoku.model.History;
+import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.StopWatch;
 import sudoku_game.sudoku.view.Buttons;
 

@@ -4,7 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import sudoku_game.sudoku.model.History;
+import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.SudokuSolver;
 import sudoku_game.sudoku.view.CONSTANSTS;
 
@@ -38,6 +38,9 @@ public class Grids extends ButtonsManipulation{
         return selectedButton;
     }
 
+    /**
+     * Generates new grid and starts a new game with a new time
+     */
     public void generateNewGrid(){
         selectedButton = null;
         unsetFixedValues(arrFixedValues);
@@ -133,14 +136,19 @@ public class Grids extends ButtonsManipulation{
         return true;
     }
 
+    /**
+     * Checkes whether a position in a grid was pre-given: In such case a player is not allowed to
+     *  change the value in grid.
+     */
     public boolean valueISFixed(String buttonID, boolean arrPositionsWithFixedValues[][]){
         int rowIndex = Character.getNumericValue(buttonID.charAt(0));
         int columnIndex = Character.getNumericValue(buttonID.charAt(1));
         return arrPositionsWithFixedValues[rowIndex][columnIndex];
     }
 
-    // sets all values in boolean arrPositionsWithFixedValues[][] to false, because new grid will be generated and old
-    // fixed values might be free in a new grid.
+    /** sets all values in boolean arrPositionsWithFixedValues[][] to false, because new grid will be generated and old
+    * fixed values might be free in a new grid.
+     */
     public void unsetFixedValues(boolean arrPositionsWithFixedValues[][]){
         for(int i = 0; i<GRID_SIZE; i++){
             for(int j = 0; j<GRID_SIZE; j++){
@@ -149,7 +157,11 @@ public class Grids extends ButtonsManipulation{
         }
     }
 
-    //Fixes values at positions, on which a value was given, so that they can not be changed.
+    /**
+     * Fixes values at positions, on which a value was given, so that they can not be changed.
+     * @param newGrid = array of int values of a new grid
+     * @param arrPositionsWithFixedValues = array with booleans, (true = value pregiven, false = user cal fill the value)
+     */
     public void fixValuesGeneratedByNewGrid(int newGrid[][],boolean arrPositionsWithFixedValues[][]){
         for(int i = 0; i<GRID_SIZE; i++){
             for(int j = 0; j<GRID_SIZE; j++){

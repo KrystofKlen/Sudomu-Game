@@ -9,7 +9,9 @@ import static sudoku_game.sudoku.view.CONSTANSTS.*;
 
 public class ButtonsManipulation {
 
-    //highlights buttons in square, row and column
+    /**
+     * highlights buttons in square, row and column
+     */
     public void higlightImportantButtons(Button buttonClicked, Button arrGridButtons[][],final String color, String colorSelected){
         int btnRowIndex = Character.getNumericValue(buttonClicked.getId().charAt(0));
         int btnColumnIndex = Character.getNumericValue(buttonClicked.getId().charAt(1));
@@ -34,6 +36,12 @@ public class ButtonsManipulation {
         buttonClicked.setStyle("-fx-background-color:" + colorSelected + ";");
     }
 
+    /**
+     * when 2 buttons are Not OK with in the solution, than this function is used to
+     * highlight these 2 buttons
+     * @param arrGridButtons
+     * @param arrGridValues
+     */
     public void highlightWrongSolution(Button arrGridButtons[][], int arrGridValues[][]){
         Button wrongSolution[] = new Button[2];
         SudokuSolver.find2ButtonsThatAreNotOKinSolutions(wrongSolution,arrGridButtons,arrGridValues);
@@ -94,6 +102,11 @@ public class ButtonsManipulation {
         }
     }
 
+    /**
+     * when a new grid is generated... there is a solved grid and we want to remove approximately 4 of 5 elements at
+     * random positions, so that there are empty squares in grid and Sudoku can be solved.
+     * @param grid
+     */
     void clearNumbersAtRandomPositions(int grid[][]){
         Random random = new Random(System.currentTimeMillis());
         for(int i = 0; i<GRID_SIZE; i++){
