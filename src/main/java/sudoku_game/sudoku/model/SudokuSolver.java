@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 
 import static sudoku_game.sudoku.view.CONSTANSTS.GRID_SIZE;
 
-public class SudokuSolver {
+public class SudokuSolver extends SudokuGridNumbers{
 
     //This function is ment to call when there is a wrong solutiuon. It finds 2 buttopns in grid, which values
     //don't fit to a solution.
@@ -76,41 +76,7 @@ public class SudokuSolver {
         return true;
     }
 
-    /* Helper functions for Sudoku Solver
-     *********************************************************************************************************/
-    private static boolean numIsValid(int num, int grid[][], int rowIndex, int columnIndex) {
-        return !containsInRow(num, grid, rowIndex, columnIndex)
-                && !containsInColumn(num, grid, rowIndex, columnIndex)
-                && !containsInSquare(num, grid, rowIndex, columnIndex);
-    }
 
-    private static boolean containsInRow(int num, int grid[][], int rowIndex, int columnIndex) {
-
-        for (int i = 0; i < GRID_SIZE; i++) {
-            if (grid[rowIndex][i] == num && i != columnIndex) return true;
-        }
-        return false;
-    }
-
-    private static boolean containsInColumn(int num, int grid[][], int rowIndex, int columnIndex) {
-
-        for (int i = 0; i < GRID_SIZE; i++) {
-            if (grid[i][columnIndex] == num && i != rowIndex) return true;
-        }
-        return false;
-    }
-
-    private static boolean containsInSquare(int num, int grid[][], int rowIndex, int columnIndex) {
-        int sqRow = rowIndex - rowIndex % 3;
-        int sqCol = columnIndex - columnIndex % 3;
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (grid[sqRow + i][sqCol + j] == num && sqRow + i != rowIndex && sqCol + j != columnIndex) return true;
-            }
-        }
-        return false;
-    }
 
 }
 

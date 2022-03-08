@@ -7,8 +7,8 @@ import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_SOLUTION_CORRECT;
 import static sudoku_game.sudoku.view.CONSTANSTS.TEXT_TIME_ELIMINATE;
 
 public class GameControl {
-    Grids grids;
-    StopWatch stopWatch;
+    private Grids grids;
+    private StopWatch stopWatch;
 
     public GameControl(Grids grids, StopWatch stopWatch) {
         this.grids = grids;
