@@ -60,6 +60,7 @@ public class Buttons extends ButtonsManipulation {
                 if(!solved){
                     highlightWrongSolution(grids.getArrButtonsInGrid(),grids.getArrValuesInGrid());
                 }else{
+                    //SOLUTION CORRECT
                     gameControl.endGame();
                 }
             }
