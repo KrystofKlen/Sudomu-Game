@@ -7,12 +7,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.StopWatch;
-import sudoku_game.sudoku.view.Buttons;
+import sudoku_game.sudoku.view.ButtonsSinglePlayer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class ControllerSinglePlayer implements Initializable {
 
     @FXML
     GridPane gridSudoku, gridNumbers;
@@ -22,14 +22,14 @@ public class Controller implements Initializable {
     Text txtTime;
 
     Grids grids;
-    Buttons buttons;
+    ButtonsSinglePlayer buttons;
     History history;
     StopWatch stopWatch;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         grids = new Grids(gridSudoku, gridNumbers);
-        buttons = new Buttons(grids);
+        buttons = new ButtonsSinglePlayer(grids);
         history = new History();
         stopWatch = new StopWatch(txtTime);
         buttons.prepareNewGridButton(btnNewGrid,stopWatch);

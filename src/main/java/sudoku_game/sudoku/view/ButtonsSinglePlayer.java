@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import sudoku_game.sudoku.game.GameControl;
+import sudoku_game.sudoku.game.GameControlSinglePlayer;
 import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.history.HistoryValue;
 import sudoku_game.sudoku.model.StopWatch;
@@ -14,9 +15,9 @@ import sudoku_game.sudoku.view_model.Grids;
 
 import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_NORMAL;
 
-public class Buttons extends ButtonsManipulation {
+public class ButtonsSinglePlayer extends ButtonsManipulation {
     Grids gridSudoku;
-    public Buttons(Grids gridSudoku){
+    public ButtonsSinglePlayer(Grids gridSudoku){
         this.gridSudoku = gridSudoku;
     }
     GameControl gameControl;
@@ -25,7 +26,7 @@ public class Buttons extends ButtonsManipulation {
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                gameControl = new GameControl(gridSudoku, stopWatch);
+                gameControl = new GameControlSinglePlayer(gridSudoku, stopWatch);
                 gameControl.startGame();
                 gridSudoku.generateNewGrid();
                 History.resetHistory();

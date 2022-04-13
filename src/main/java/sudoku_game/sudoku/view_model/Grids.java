@@ -8,6 +8,9 @@ import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.SudokuSolver;
 import sudoku_game.sudoku.view.CONSTANSTS;
 
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
 import static sudoku_game.sudoku.view.CONSTANSTS.*;
 
 public class Grids extends ButtonsManipulation{
@@ -54,6 +57,16 @@ public class Grids extends ButtonsManipulation{
         fixValuesGeneratedByNewGrid(arrValuesInGrid, arrFixedValues);
         setStyleToButtonsWithFixedValues(arrFixedValues, arrButtonsInGrid);
     }
+    public void generateNewGrid(String gridFromServer){
+        selectedButton = null;
+        unsetFixedValues(arrFixedValues);
+        highlightAllButtons(arrButtonsInGrid,arrNumberButtons,BTN_COLOR_NORMAL);
+        clearTextButtons(arrButtonsInGrid);
+        setArrValuesFromServerStringGrid(gridFromServer);
+        setButtonsTextFromArrOfValues(arrValuesInGrid,arrButtonsInGrid);
+        fixValuesGeneratedByNewGrid(arrValuesInGrid, arrFixedValues);
+        setStyleToButtonsWithFixedValues(arrFixedValues, arrButtonsInGrid);
+    }
 
     private void fillSudokuGridWithButtons(){
         for(int rowIndex = 0; rowIndex<GRID_SIZE; rowIndex++){
@@ -61,10 +74,12 @@ public class Grids extends ButtonsManipulation{
                 Button btnGrid = new Button();
                 btnGrid.setPrefHeight(CONSTANSTS.SUDOKU_BTN_SIZE);
                 btnGrid.setPrefWidth(CONSTANSTS.SUDOKU_BTN_SIZE);
+                System.out.println("SET");
                 btnGrid.setId(String.valueOf(rowIndex) + String.valueOf(columnIndex));
                 btnGrid.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
+                        System.out.println("clicked");
                         selectedButton = btnGrid;
                         highlightAllButtons(arrButtonsInGrid,arrNumberButtons,BTN_COLOR_NORMAL);
                         higlightImportantButtons(btnGrid,arrButtonsInGrid,IMPORTANT_BTN_HIGHLIGHT_COLOR,SELECTED_BTN_HIGHLIGHT_COLOR);
@@ -175,5 +190,20 @@ public class Grids extends ButtonsManipulation{
             }
         }
     }
+
+    private void setArrValuesFromServerStringGrid(String serverMessage){
+        Scanner sc = new Scanner(serverMessage);
+        sc.skip(Pattern.compile("#GRID:"));
+        sc.useDelimiter(",");
+        for(int rowIndex = 0; rowIndex<GRID_SIZE;rowIndex++){
+            for(int columnIndex = 0; columnIndex<GRID_SIZE;columnIndex++){
+                arrValuesInGrid[rowIndex][columnIndex] = sc.nextInt();
+            }
+        }
+    }
+
+
+
+
 
 }
