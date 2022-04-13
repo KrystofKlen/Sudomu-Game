@@ -1,6 +1,8 @@
 package sudoku_game.sudoku.view;
 
 public class CONSTANSTS {
+
+    public static final int ATTEMPTS_FOR_MULTIPLAYER = 5;
     public static int GRID_SIZE = 9;
     public static final double SUDOKU_BTN_SIZE = 30;
     public static final double NUMBER_BTN_WIDTH = 50;

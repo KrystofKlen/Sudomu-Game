@@ -29,8 +29,6 @@ public class Client {
                     new BufferedReader(
                             new InputStreamReader(socket.getInputStream())
                     );
-
-
         }catch (IOException ioEx){
             System.out.println("CONNECTION FAILED" + " USERNAME: " + userName);
             closeEverything();
@@ -69,6 +67,14 @@ public class Client {
                         if(message.startsWith("#GRID:")){
                             GameControlMultiPlayer.gameCanStart = true;
                             GameControlMultiPlayer.gridServer = message;
+                        }
+                        if(message.equals("#SOLUTION_OK\n")){
+                            GameControlMultiPlayer.waitingForEvaluation = false;
+                            System.out.printf("YOU WON");
+                        }
+                        if (message.equals("#SOLUTION_WRONG\n")){
+                            GameControlMultiPlayer.waitingForEvaluation = false;
+                            System.out.printf("WRONG SOLUTION");
                         }
                     }catch(IOException e){
                         closeEverything();

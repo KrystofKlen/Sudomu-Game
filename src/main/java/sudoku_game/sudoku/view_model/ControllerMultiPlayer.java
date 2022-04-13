@@ -28,7 +28,7 @@ public class ControllerMultiPlayer implements Initializable {
         buttons = new ButtonsMultiPlayer(grids);
         history = new History();
         buttons.prepareGiveUpButton();
-        buttons.prepareSendSolutionButton(btnSendSolution);
+        buttons.prepareSendSolutionButton(btnSendSolution,grids.getArrValuesInGrid());
         grids.generateNewGrid(GameControlMultiPlayer.gridServer);
         History.resetHistory();
     }
