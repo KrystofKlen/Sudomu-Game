@@ -87,8 +87,8 @@ public class ButtonsMenu extends ButtonsManipulation {
             connected.setOnSucceeded(event->{
                 try {
                     Parent root = FXMLLoader.load(RunApplication.class.getResource("UI_multi_player.fxml"));
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
+                    stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
                 } catch (IOException e) {
