@@ -10,9 +10,9 @@
    <children>
       <Button fx:id="singlePlayerButton" layoutX="414.0" layoutY="204.0" mnemonicParsing="false" text="Single Player" />
       <Button fx:id="connectButton" layoutX="418.0" layoutY="444.0" mnemonicParsing="false" text="Connect" />
-      <TextField fx:id="txtFieldServerName" layoutX="380.0" layoutY="364.0" promptText="server IP" />
+      <TextField fx:id="txtFieldServerName" layoutX="380.0" layoutY="364.0" promptText="server IP" text="localhost"/>
       <TextField fx:id="txtFieldUsername" layoutX="380.0" layoutY="331.0" promptText="username" />
-      <TextField fx:id="txtFieldPort" layoutX="380.0" layoutY="403.0" promptText="port" />
+      <TextField fx:id="txtFieldPort" layoutX="380.0" layoutY="403.0" promptText="port" text="5555" />
       <Text fx:id="txtState" fill="WHITE" layoutX="414.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gfdgf">
          <font>
             <Font size="28.0" />

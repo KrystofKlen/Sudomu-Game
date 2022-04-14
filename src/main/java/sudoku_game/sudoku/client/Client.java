@@ -1,5 +1,11 @@
 package sudoku_game.sudoku.client;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import sudoku_game.sudoku.RunApplication;
 import sudoku_game.sudoku.game.GameControl;
 import sudoku_game.sudoku.game.GameControlMultiPlayer;
 
@@ -53,28 +59,22 @@ public class Client {
     }
 
     public void listenForMessage(){
-        new Thread(new Runnable() {
+       new Thread(new Runnable() {
             @Override
             public void run() {
                 String message;
-                while(socket.isConnected()){
+                while(!socket.isClosed()){
                     try{
                         message = bufferedReader.readLine();
                         System.out.println("RECEIVED: " + message);
-                        if(message.equals("#AUTHENTICATED\n")){
-                            authenticated.set(true);
-                        }
                         if(message.startsWith("#GRID:")){
                             GameControlMultiPlayer.gameCanStart = true;
+                            GameControlMultiPlayer.isInGame = true;
                             GameControlMultiPlayer.gridServer = message;
                         }
-                        if(message.equals("#SOLUTION_OK\n")){
-                            GameControlMultiPlayer.waitingForEvaluation = false;
-                            System.out.printf("YOU WON");
-                        }
-                        if (message.equals("#SOLUTION_WRONG\n")){
-                            GameControlMultiPlayer.waitingForEvaluation = false;
-                            System.out.printf("WRONG SOLUTION");
+                        if(message.equals("#YOU_WON")){
+                            GameControlMultiPlayer.endGame();
+                            GameControlMultiPlayer.displayMessageFromServer("YOU WON.");
                         }
                     }catch(IOException e){
                         closeEverything();
@@ -88,7 +88,7 @@ public class Client {
         sendMessage("NEW_USER");
         String message;
         System.out.println("LISTENING");
-        while (socket.isConnected()) {
+        while (!socket.isClosed()) {
             try {
                 message = bufferedReader.readLine();
                 System.out.println("RECEIVED: " + message);
@@ -104,19 +104,26 @@ public class Client {
         return false;
     }
 
-    public void closeEverything(){
-        try{
-            if(bufferedReader != null
-                    && bufferedWriter != null
-                    && socket != null){
-                bufferedReader.close();
+    public void closeEverything() {
+        try {
+            if (bufferedWriter != null) {
                 bufferedWriter.close();
-                socket.close();
+            } else {
+                throw new IOException();
             }
-
-        }catch (IOException e){
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            } else {
+                throw new IOException();
+            }
+            if (socket != null) {
+                socket.close();
+            } else {
+                throw new IOException();
+            }
+            return;
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

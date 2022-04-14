@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import sudoku_game.sudoku.game.GameControlMultiPlayer;
 import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.view.ButtonsMultiPlayer;
@@ -20,16 +21,24 @@ public class ControllerMultiPlayer implements Initializable {
     @FXML
     GridPane gridSudoku, gridNumbers;
     @FXML
-    Button btnSendSolution;
+    Button btnSendSolution,btnLeave;
+    @FXML
+    Text txtAttemptsRemaining;
+
+    @FXML
+    Text txtMessagesFromServer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        GameControlMultiPlayer.btnSendSolution = btnSendSolution;
+        GameControlMultiPlayer.txtMessagesFromServer = txtMessagesFromServer;
         grids = new Grids(gridSudoku,gridNumbers);
-        buttons = new ButtonsMultiPlayer(grids);
+        buttons = new ButtonsMultiPlayer(grids,btnLeave);
         history = new History();
-        buttons.prepareGiveUpButton();
-        buttons.prepareSendSolutionButton(btnSendSolution,grids.getArrValuesInGrid());
+        buttons.prepareLeaveButton();
+        buttons.prepareSendSolutionButton(btnSendSolution,grids.getArrValuesInGrid(),txtAttemptsRemaining);
         grids.generateNewGrid(GameControlMultiPlayer.gridServer);
         History.resetHistory();
     }
+
 }

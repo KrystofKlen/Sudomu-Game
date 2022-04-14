@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku_game.sudoku.view_model.ControllerMultiPlayer">
    <children>
@@ -37,8 +38,8 @@
 
       <AnchorPane prefHeight="600.0" prefWidth="186.0" style="-fx-background-color: #004080;">
          <children>
-            <Button fx:id="btnCheck" layoutX="62.0" layoutY="141.0" mnemonicParsing="false" text="Check" />
-            <Button fx:id="btnSendSolution" layoutX="62.0" layoutY="187.0" mnemonicParsing="false" text="Send solution" />
+            <Button fx:id="btnSendSolution" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" text="Send solution" />
+            <Button fx:id="btnLeave" layoutX="58.0" layoutY="118.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" text="Leave" />
          </children>
       </AnchorPane>
       <GridPane fx:id="gridNumbers" layoutX="200.0" layoutY="513.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="59.0" prefWidth="565.0">
@@ -57,6 +58,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <AnchorPane layoutX="760.0" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #004080; " />
+      <AnchorPane layoutX="760.0" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #004080; ">
+         <children>
+            <Text fill="#fcf9f9" layoutX="29.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attempts remaining: " />
+            <Text fx:id="txtAttemptsRemaining" fill="#f5f4f4" layoutX="86.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" />
+            <Text fx:id="txtMessagesFromServer" fill="WHITE" layoutX="76.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>

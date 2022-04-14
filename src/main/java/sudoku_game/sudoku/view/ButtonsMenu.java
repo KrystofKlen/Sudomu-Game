@@ -38,11 +38,8 @@ public class ButtonsMenu extends ButtonsManipulation {
 
         });
     }
-
     public void prpConntct(Button button, TextField txtFieldServerIP, TextField txtFieldUsername,
                            TextField txtFieldPort, Text txtState){
-
-
 
         button.setOnMouseClicked(mouseEvent -> {
             int port;
@@ -58,7 +55,6 @@ public class ButtonsMenu extends ButtonsManipulation {
                 protected Void call() throws Exception {
 
                     txtState.setText("Conneting...");
-
                     if(!client.connectClient(txtFieldServerIP.getText(),port)){
                         txtState.setText("Connetion failed.");
                         throw new IOException();
@@ -69,7 +65,6 @@ public class ButtonsMenu extends ButtonsManipulation {
                         System.out.println("NOT AUTHENTICATED");
                         throw new IOException();
                     }
-
                     txtState.setText("Looking for opponents...");
                     client.listenForMessage();
                     while(!GameControlMultiPlayer.gameCanStart){
@@ -80,6 +75,7 @@ public class ButtonsMenu extends ButtonsManipulation {
                             e.printStackTrace();
                         }
                     }
+                    GameControlMultiPlayer.gameCanStart = false;
                     return null;
                 }
             };
