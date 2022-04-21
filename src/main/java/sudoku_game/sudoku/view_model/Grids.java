@@ -202,8 +202,4 @@ public class Grids extends ButtonsManipulation{
         }
     }
 
-
-
-
-
 }
