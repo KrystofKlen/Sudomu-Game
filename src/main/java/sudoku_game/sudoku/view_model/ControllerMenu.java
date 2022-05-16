@@ -23,7 +23,6 @@ public class ControllerMenu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ButtonsMenu buttonsMenu = new ButtonsMenu();
-        //buttonsMenu.prepareConnectButton(connectButton,txtFieldServerName,txtFieldUsername,txtFieldPort,txtState);
         buttonsMenu.prepareSinglePlayerButton(singlePlayerButton);
         buttonsMenu.prpConntct(connectButton,txtFieldServerName,txtFieldUsername,txtFieldPort,txtState);
     }

@@ -6,7 +6,7 @@ import sudoku_game.sudoku.view_model.Grids;
 import static sudoku_game.sudoku.view.CONSTANSTS.BTN_COLOR_SOLUTION_CORRECT;
 import static sudoku_game.sudoku.view.CONSTANSTS.TEXT_TIME_ELIMINATE;
 
-public class GameControlSinglePlayer implements GameControl{
+public class GameControlSinglePlayer{
     private Grids grids;
     private StopWatch stopWatch;
 
@@ -15,13 +15,11 @@ public class GameControlSinglePlayer implements GameControl{
         this.stopWatch = stopWatch;
     }
 
-    @Override
     public void endGame(){
         grids.highlightAllButtons(grids.getArrButtonsInGrid(),BTN_COLOR_SOLUTION_CORRECT);
         stopWatch.cancelTime();
     }
 
-    @Override
     public void startGame(){
         if(stopWatch.IS_RUNNING){
             stopWatch.resetTime();
@@ -30,7 +28,6 @@ public class GameControlSinglePlayer implements GameControl{
         }
     }
 
-    @Override
     public void discardGame(){
         grids.highlightAllButtons(grids.getArrButtonsInGrid(),BTN_COLOR_SOLUTION_CORRECT);
         stopWatch.cancelTime();

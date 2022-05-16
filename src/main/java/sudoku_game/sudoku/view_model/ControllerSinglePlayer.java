@@ -26,6 +26,7 @@ public class ControllerSinglePlayer implements Initializable {
     History history;
     StopWatch stopWatch;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         grids = new Grids(gridSudoku, gridNumbers);

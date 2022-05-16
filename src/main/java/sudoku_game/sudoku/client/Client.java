@@ -1,12 +1,5 @@
 package sudoku_game.sudoku.client;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import sudoku_game.sudoku.RunApplication;
-import sudoku_game.sudoku.game.GameControl;
 import sudoku_game.sudoku.game.GameControlMultiPlayer;
 
 import java.io.*;
@@ -44,6 +37,11 @@ public class Client {
         return true;
     }
 
+    /**
+     * Sends message to the server
+     * @param content = content of message (Without delimiters, just raw content)
+     * @return
+     */
     public boolean sendMessage(String content){
 
         String message = String.format("#%s:%s\n", GameControlMultiPlayer.client.userName, content);
@@ -84,6 +82,10 @@ public class Client {
         }).start();
     }
 
+    /**
+     * Pseudo - authentication, to be improved by your needs
+     * @return true = authentication succeded, false = failed
+     */
     public boolean authenticateSuccess() {
         sendMessage("NEW_USER");
         String message;

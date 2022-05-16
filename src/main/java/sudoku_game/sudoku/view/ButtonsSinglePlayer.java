@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sudoku_game.sudoku.RunApplication;
-import sudoku_game.sudoku.game.GameControl;
 import sudoku_game.sudoku.game.GameControlSinglePlayer;
 import sudoku_game.sudoku.model.history.History;
 import sudoku_game.sudoku.model.history.HistoryValue;
@@ -28,7 +27,7 @@ public class ButtonsSinglePlayer extends ButtonsManipulation {
     public ButtonsSinglePlayer(Grids gridSudoku){
         this.gridSudoku = gridSudoku;
     }
-    GameControl gameControl;
+    GameControlSinglePlayer gameControl;
 
     public void prepareNewGridButton(Button button, StopWatch stopWatch){
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {

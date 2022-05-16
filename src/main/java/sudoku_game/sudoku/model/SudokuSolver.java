@@ -6,8 +6,13 @@ import static sudoku_game.sudoku.view.CONSTANSTS.GRID_SIZE;
 
 public class SudokuSolver extends SudokuGridNumbers{
 
-    //This function is ment to call when there is a wrong solutiuon. It finds 2 buttopns in grid, which values
-    //don't fit to a solution.
+    /**
+     * This function is ment to be called when there is a wrong solutiuon. It finds 2 buttopns in grid, which values
+     *  don't fit to a solution.
+     * @param arr2Buttons
+     * @param gridButtons
+     * @param arrGridValues
+     */
     public static void find2ButtonsThatAreNotOKinSolutions(Button arr2Buttons[], Button gridButtons[][], int arrGridValues[][]){
         int num;
         for(int rowIndex = 0; rowIndex<GRID_SIZE; rowIndex++){
@@ -46,6 +51,10 @@ public class SudokuSolver extends SudokuGridNumbers{
         }
     }
 
+    /**
+     * @param grid - array of integers [row index][column index]
+     * @return true - solution OK, false - solution not correct
+     */
     public static boolean checkIfSolutionisOK(int grid[][]) {
         for (int rowIndex = 0; rowIndex < GRID_SIZE; rowIndex++) {
             for (int columnIndex = 0; columnIndex < GRID_SIZE; columnIndex++) {
@@ -56,7 +65,13 @@ public class SudokuSolver extends SudokuGridNumbers{
         }
         return true;
     }
-    //Key function used to solve sudoku grid
+
+    /**
+     * Key function used to solve sudoku grid
+     * @param grid - array of integers [row index][column index],
+     *             !!!if field is empty, use 0 as value in array!!!
+     * @return true - solution correct, false -
+     */
     public static boolean solveSudoku(int grid[][]) {
         for (int rowIndex = 0; rowIndex < GRID_SIZE; rowIndex++) {
             for (int columnIndex = 0; columnIndex < GRID_SIZE; columnIndex++) {

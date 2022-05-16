@@ -68,6 +68,9 @@ public class Grids extends ButtonsManipulation{
         setStyleToButtonsWithFixedValues(arrFixedValues, arrButtonsInGrid);
     }
 
+    /**
+     * when gane is initialized, this function will fill the grid with clickable buttons
+     */
     private void fillSudokuGridWithButtons(){
         for(int rowIndex = 0; rowIndex<GRID_SIZE; rowIndex++){
             for(int columnIndex = 0; columnIndex<GRID_SIZE; columnIndex++){
@@ -81,7 +84,7 @@ public class Grids extends ButtonsManipulation{
                         selectedButton = btnGrid;
                         highlightAllButtons(arrButtonsInGrid,arrNumberButtons,BTN_COLOR_NORMAL);
                         higlightImportantButtons(btnGrid,arrButtonsInGrid,IMPORTANT_BTN_HIGHLIGHT_COLOR,SELECTED_BTN_HIGHLIGHT_COLOR);
-                        highlightButtonWithCorresxpondingValue(btnGrid);
+                        highlightButtonWithCorrespondingValue(btnGrid);
                         setStyleToButtonsWithFixedValues(arrFixedValues, arrButtonsInGrid);
                     }
                 });
@@ -121,7 +124,12 @@ public class Grids extends ButtonsManipulation{
         }
     }
 
-    private void highlightButtonWithCorresxpondingValue(Button selectedButton){
+    /**
+     * When a value is selected in the grid and there happend to be a number, it will be
+     * highlighted in buttons bellow grid using this function.
+     * @param selectedButton = selected button in grid
+     */
+    private void highlightButtonWithCorrespondingValue(Button selectedButton){
         int value;
         try{
             value = Integer.parseInt(selectedButton.getText());
@@ -133,6 +141,12 @@ public class Grids extends ButtonsManipulation{
         value --;
         return arrNumberButtons[value];
     }
+
+    /**
+     * When user changes a value in a button in the grid, it needs to be
+     * updated in array of values, which are than evaluated
+     * @param numberButton
+     */
     public void changeButtonValueInArrValues(Button numberButton){
         int btnRowIndex = Character.getNumericValue(selectedButton.getId().charAt(0));
         int btnColumnIndex = Character.getNumericValue(selectedButton.getId().charAt(1));
@@ -189,6 +203,10 @@ public class Grids extends ButtonsManipulation{
         }
     }
 
+    /**
+     * Sets grid to values, accepting message from server, which must be in correct format!
+     * @param serverMessage
+     */
     private void setArrValuesFromServerStringGrid(String serverMessage){
         Scanner sc = new Scanner(serverMessage);
         sc.skip(Pattern.compile("#GRID:"));

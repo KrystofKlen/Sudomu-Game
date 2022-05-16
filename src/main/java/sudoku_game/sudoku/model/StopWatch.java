@@ -8,7 +8,6 @@ import static sudoku_game.sudoku.view.CONSTANSTS.TEXT_TIME_ELIMINATE;
 
 public class StopWatch {
     private int elapsedTimeInSeconds;
-
     private Timer timer;
     private TimerTask timerTask;
     private Text txtTime;

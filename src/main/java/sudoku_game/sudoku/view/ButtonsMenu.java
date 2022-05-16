@@ -17,7 +17,6 @@ import sudoku_game.sudoku.game.GameControlMultiPlayer;
 import sudoku_game.sudoku.view_model.ButtonsManipulation;
 
 import java.io.IOException;
-import java.util.TimerTask;
 
 public class ButtonsMenu extends ButtonsManipulation {
 
