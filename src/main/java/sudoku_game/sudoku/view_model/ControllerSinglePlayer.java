@@ -17,7 +17,7 @@ public class ControllerSinglePlayer implements Initializable {
     @FXML
     GridPane gridSudoku, gridNumbers;
     @FXML
-    Button btnNewGrid, btnSolve, btnCheck, btnBack;
+    Button btnNewGrid, btnSolve, btnCheck, btnBack, btnLeave;
     @FXML
     Text txtTime;
 
@@ -36,6 +36,7 @@ public class ControllerSinglePlayer implements Initializable {
         buttons.prepareSolveButton(btnSolve, stopWatch);
         buttons.prepareCheckButton(btnCheck,grids,stopWatch);
         buttons.prepareBackButton(btnBack,grids);
+        buttons.prepareLeaveButton(btnLeave);
     }
 
 }

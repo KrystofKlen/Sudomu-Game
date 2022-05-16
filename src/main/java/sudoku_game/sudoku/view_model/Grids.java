@@ -74,12 +74,10 @@ public class Grids extends ButtonsManipulation{
                 Button btnGrid = new Button();
                 btnGrid.setPrefHeight(CONSTANSTS.SUDOKU_BTN_SIZE);
                 btnGrid.setPrefWidth(CONSTANSTS.SUDOKU_BTN_SIZE);
-                System.out.println("SET");
                 btnGrid.setId(String.valueOf(rowIndex) + String.valueOf(columnIndex));
                 btnGrid.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
-                        System.out.println("clicked");
                         selectedButton = btnGrid;
                         highlightAllButtons(arrButtonsInGrid,arrNumberButtons,BTN_COLOR_NORMAL);
                         higlightImportantButtons(btnGrid,arrButtonsInGrid,IMPORTANT_BTN_HIGHLIGHT_COLOR,SELECTED_BTN_HIGHLIGHT_COLOR);

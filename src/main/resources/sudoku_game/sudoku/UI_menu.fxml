@@ -8,14 +8,38 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #004080;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku_game.sudoku.view_model.ControllerMenu">
    <children>
-      <Button fx:id="singlePlayerButton" layoutX="414.0" layoutY="204.0" mnemonicParsing="false" text="Single Player" />
-      <Button fx:id="connectButton" layoutX="418.0" layoutY="444.0" mnemonicParsing="false" text="Connect" />
-      <TextField fx:id="txtFieldServerName" layoutX="380.0" layoutY="364.0" promptText="server IP" text="localhost"/>
-      <TextField fx:id="txtFieldUsername" layoutX="380.0" layoutY="331.0" promptText="username" />
-      <TextField fx:id="txtFieldPort" layoutX="380.0" layoutY="403.0" promptText="port" text="5555" />
-      <Text fx:id="txtState" fill="WHITE" layoutX="414.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gfdgf">
+      <Text fill="WHITE" layoutX="357.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUDOKU">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="118.0" layoutY="164.0" prefHeight="297.0" prefWidth="239.0" style="-fx-background-color: #663399;">
+         <children>
+            <Button fx:id="singlePlayerButton" layoutX="49.0" layoutY="225.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="142.0" text="Single Player" />
+            <Text fill="#f5f3f3" layoutX="39.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Single player">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="594.0" layoutY="164.0" prefHeight="297.0" prefWidth="239.0" style="-fx-background-color: #663399;">
+         <children>
+            <TextField fx:id="txtFieldUsername" layoutX="34.0" layoutY="109.0" promptText="username" />
+            <TextField fx:id="txtFieldServerName" layoutX="34.0" layoutY="149.0" promptText="server IP" text="localhost" />
+            <TextField fx:id="txtFieldPort" layoutX="34.0" layoutY="187.0" promptText="port" text="5555" />
+            <Button fx:id="connectButton" layoutX="34.0" layoutY="235.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="171.0" text="Connect" />
+            <Text fill="WHITE" layoutX="43.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Multi Player">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text fx:id="txtState" fill="WHITE" layoutX="286.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="388.0">
          <font>
             <Font size="28.0" />
-         </font></Text>
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku_game.sudoku.view_model.ControllerSinglePlayer">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #a9a8ad;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku_game.sudoku.view_model.ControllerSinglePlayer">
    <children>
       <GridPane fx:id="gridSudoku" layoutX="293.0" layoutY="91.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="360.0">
         <columnConstraints>
@@ -35,10 +35,11 @@
       </GridPane>
       <AnchorPane prefHeight="600.0" prefWidth="186.0" style="-fx-background-color: #004080;">
          <children>
-            <Button fx:id="btnSolve" layoutX="67.0" layoutY="51.0" mnemonicParsing="false" text="Solve" />
-            <Button fx:id="btnBack" layoutX="69.0" layoutY="165.0" mnemonicParsing="false" text="Back" />
-            <Button fx:id="btnNewGrid" layoutX="63.0" layoutY="88.0" mnemonicParsing="false" text="New Grid" />
-            <Button fx:id="btnCheck" layoutX="65.0" layoutY="125.0" mnemonicParsing="false" text="Check" />
+            <Button fx:id="btnSolve" layoutX="34.0" layoutY="30.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="118.0" text="Solve" />
+            <Button fx:id="btnBack" layoutX="35.0" layoutY="202.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="118.0" text="Back" />
+            <Button fx:id="btnNewGrid" layoutX="35.0" layoutY="86.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="118.0" text="New Grid" />
+            <Button fx:id="btnCheck" layoutX="35.0" layoutY="144.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="118.0" text="Check" />
+            <Button fx:id="btnLeave" layoutX="34.0" layoutY="258.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="118.0" text="Leave" />
          </children>
       </AnchorPane>
       <Text fx:id="txtTime" layoutX="457.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME" />
