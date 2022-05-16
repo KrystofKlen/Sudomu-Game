@@ -74,6 +74,11 @@ public class Client {
                             GameControlMultiPlayer.endGame();
                             GameControlMultiPlayer.displayMessageFromServer("YOU WON.");
                         }
+                        if(message.startsWith("#YOU_LOST")){
+                            GameControlMultiPlayer.endGame();
+                            GameControlMultiPlayer.displayMessageFromServer("YOU LOST \n" +
+                                    message.substring(9));
+                        }
                     }catch(IOException e){
                         closeEverything();
                     }
